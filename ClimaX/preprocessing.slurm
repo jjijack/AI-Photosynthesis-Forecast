@@ -10,7 +10,7 @@
 module load miniconda3
 source activate climaX
 python src/data_preprocessing/nc2np_equally_cmip6.py \
-    --dataset awi \
-    --path ~/AI-Photosynthesis-Forecast/Data/climax/CMIP6/AWI-ESM/1.40625deg/ \
+    --dataset hammoz \
+    --path ~/AI-Photosynthesis-Forecast/Data/climax/CMIP6/HAMMOZ/5.625deg/ \
     --num_shards 10 \
-    --save_dir ~/AI-Photosynthesis-Forecast/Data/climax/CMIP6/AWI-ESM/1.40625deg_np_10shards
+    --save_dir ~/AI-Photosynthesis-Forecast/Data/climax/CMIP6/HAMMOZ/5.625deg_np_10shards
