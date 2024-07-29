@@ -194,6 +194,28 @@ class GlobalForecastModule(LightningModule):
             )
         return loss_dict
 
+    def predict_step(self, batch: Any, batch_idx: int):
+        x, y, lead_times, variables, out_variables = batch
+
+        if self.pred_range < 24:
+            log_postfix = f"{self.pred_range}_hours"
+        else:
+            days = int(self.pred_range / 24)
+            log_postfix = f"{days}_days"
+
+        preds = self.net.predict(
+            x,
+            lead_times,
+            variables,
+            out_variables,
+            transform=self.denormalization,
+            lat=self.lat,
+            clim=self.test_clim,
+            log_postfix=log_postfix,
+        )
+
+        return preds
+
     def configure_optimizers(self):
         decay = []
         no_decay = []

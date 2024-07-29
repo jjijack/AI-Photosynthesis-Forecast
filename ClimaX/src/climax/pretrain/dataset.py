@@ -47,7 +47,7 @@ class NpyReader(IterableDataset):
                 world_size = torch.distributed.get_world_size()
             num_workers_per_ddp = worker_info.num_workers
             if self.multi_dataset_training:
-                num_nodes = int(os.environ.get("NODES", None))
+                num_nodes = int(os.environ.get("NODES", 1))
                 num_gpus_per_node = int(world_size / num_nodes)
                 num_shards = num_workers_per_ddp * num_gpus_per_node
                 rank = rank % num_gpus_per_node

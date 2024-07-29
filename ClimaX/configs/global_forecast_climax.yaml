@@ -2,7 +2,7 @@ seed_everything: 42
 
 # ---------------------------- TRAINER -------------------------------------------
 trainer:
-  default_root_dir: ${oc.env:OUTPUT_DIR,/home/t-tungnguyen/ClimaX/exps/global_forecast_climax}
+  default_root_dir: ${oc.env:OUTPUT_DIR,${oc.env:HOME}/AI-Photosynthesis-Forecast/ClimaX/exps/global_forecast_climax}
 
   precision: 16
 
@@ -138,7 +138,7 @@ model:
 
 # ---------------------------- DATA -------------------------------------------
 data:
-  root_dir: /datadrive/datasets/5.625deg_equally_np/
+  root_dir: /dssg/home/acct-kangdj/kangdj-user1/AI-Photosynthesis-Forecast/Data/climax/ERA5/5.625deg_npz
   variables: [
       "land_sea_mask",
       "orography",

@@ -2,7 +2,7 @@ seed_everything: 42
 
 # ---------------------------- TRAINER -------------------------------------------
 trainer:
-  default_root_dir: ${oc.env:OUTPUT_DIR,/home/t-tungnguyen/ClimaX/exps/pretrain_climax}
+  default_root_dir: ${oc.env:OUTPUT_DIR,${oc.env:HOME}/AI-Photosynthesis-Forecast/ClimaX/exps/pretrain_climax}
 
   precision: 16
 
@@ -131,7 +131,7 @@ model:
 # ---------------------------- DATA -------------------------------------------
 data:
   dict_root_dirs: {
-      'mpi-esm': '/datadrive/datasets/CMIP6/MPI-ESM/5.625deg_equally_np_all_levels',
+      'mpi-esm': '/dssg/home/acct-kangdj/kangdj-user1/AI-Photosynthesis-Forecast/Data/climax/CMIP6/HAMMOZ/5.625deg_np_10shards',
   }
   dict_start_idx: {
       'mpi-esm': 0,

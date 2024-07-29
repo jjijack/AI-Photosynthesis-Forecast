@@ -268,3 +268,8 @@ class ClimaX(nn.Module):
     def evaluate(self, x, y, lead_times, variables, out_variables, transform, metrics, lat, clim, log_postfix):
         _, preds = self.forward(x, y, lead_times, variables, out_variables, metric=None, lat=lat)
         return [m(preds, y, transform, out_variables, lat, clim, log_postfix) for m in metrics]
+
+    def predict(self, x, lead_times, variables, out_variables, transform, lat, clim, log_postfix):
+        with torch.no_grad():
+            _, preds = self.forward(x, None, lead_times, variables, out_variables, metric=None, lat=lat)
+        return preds

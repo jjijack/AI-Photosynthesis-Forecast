@@ -197,3 +197,6 @@ class GlobalForecastDataModule(LightningDataModule):
             pin_memory=self.hparams.pin_memory,
             collate_fn=collate_fn,
         )
+
+    def predict_dataloader(self):
+        return self.test_dataloader()
