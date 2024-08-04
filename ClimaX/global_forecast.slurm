@@ -17,10 +17,11 @@ module load cuda
 
 python src/climax/global_forecast/train.py --config configs/global_forecast_climax.yaml \
     --trainer.strategy=ddp --trainer.devices=1 \
-    --trainer.max_epochs=3 \
-    --data.root_dir=/dssg/home/acct-kangdj/kangdj-user1/AI-Photosynthesis-Forecast/Data/climax/ERA5/5.625deg_npz \
-    --data.predict_range=72 --data.out_variables='["10m_u_component_of_wind", "10m_v_component_of_wind"]' \
+    --trainer.max_epochs=100 \
+    --data.root_dir=/dssg/home/acct-kangdj/kangdj-user1/AI-Photosynthesis-Forecast/Data/climax/nc2np_data \
+    --data.predict_range=72 \
     --data.batch_size=16 \
-    --model.pretrained_path='' \
+    --model.pretrained_path="" \
     --model.lr=5e-7 --model.beta_1="0.9" --model.beta_2="0.99" \
     --model.weight_decay=1e-5
+
